@@ -9,6 +9,7 @@ namespace Vehicle_tracking_App
         public AutoMapperProfile()
         {
             CreateMap<Users, UserDto>().ReverseMap();
+            CreateMap<UseVehicleDetails, VehicalDto>().ReverseMap();
         }
     }
 }

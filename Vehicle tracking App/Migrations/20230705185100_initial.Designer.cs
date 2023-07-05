@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vehicle_tracking_App.Data_Access;
 
@@ -10,9 +11,11 @@ using Vehicle_tracking_App.Data_Access;
 namespace Vehicle_tracking_App.Migrations
 {
     [DbContext(typeof(VehicletrackingContext))]
-    partial class VehicletrackingContextModelSnapshot : ModelSnapshot
+    [Migration("20230705185100_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +36,8 @@ namespace Vehicle_tracking_App.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MACAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("MACAddress")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -63,9 +65,6 @@ namespace Vehicle_tracking_App.Migrations
                     b.Property<string>("EngineNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
 
                     b.Property<long>("Loadcarryingcapacity")
                         .HasColumnType("bigint");

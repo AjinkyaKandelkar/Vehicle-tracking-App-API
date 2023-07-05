@@ -6,7 +6,7 @@ namespace Vehicle_tracking_App.Data_Access.Model
     public class Device : DataModelBase
     {
         public string DeviceId { get; set; }
-        public long MACAddress { get; set; }
+        public string MACAddress { get; set; }
       
     }
 }

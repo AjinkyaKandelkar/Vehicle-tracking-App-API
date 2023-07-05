@@ -11,8 +11,8 @@ using Vehicle_tracking_App.Data_Access;
 namespace Vehicle_tracking_App.Migrations
 {
     [DbContext(typeof(VehicletrackingContext))]
-    [Migration("20230629172922_init_migration")]
-    partial class init_migration
+    [Migration("20230705191829_softdelete")]
+    partial class softdelete
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,8 +36,9 @@ namespace Vehicle_tracking_App.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("MACAddress")
-                        .HasColumnType("bigint");
+                    b.Property<string>("MACAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -66,17 +67,22 @@ namespace Vehicle_tracking_App.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
                     b.Property<long>("Loadcarryingcapacity")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("Makeofvehicle")
-                        .HasColumnType("bigint");
+                    b.Property<string>("Makeofvehicle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("Manufacturingyear")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("ModelNumber")
-                        .HasColumnType("bigint");
+                    b.Property<string>("ModelNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Organisationname")
                         .IsRequired()
@@ -124,8 +130,11 @@ namespace Vehicle_tracking_App.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("photopath")
+                    b.Property<string>("password")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("photopath")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

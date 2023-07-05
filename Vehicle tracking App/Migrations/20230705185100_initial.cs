@@ -5,7 +5,7 @@
 namespace Vehicle_tracking_App.Migrations
 {
     /// <inheritdoc />
-    public partial class init_migration : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,7 +34,8 @@ namespace Vehicle_tracking_App.Migrations
                     MobileNumber = table.Column<long>(type: "bigint", nullable: false),
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Localtion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    photopath = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    photopath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,8 +54,8 @@ namespace Vehicle_tracking_App.Migrations
                     EngineNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Manufacturingyear = table.Column<long>(type: "bigint", nullable: false),
                     Loadcarryingcapacity = table.Column<long>(type: "bigint", nullable: false),
-                    Makeofvehicle = table.Column<long>(type: "bigint", nullable: false),
-                    ModelNumber = table.Column<long>(type: "bigint", nullable: false),
+                    Makeofvehicle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ModelNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Bodytype = table.Column<int>(type: "int", nullable: false),
                     Organisationname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DeviceId = table.Column<int>(type: "int", nullable: false),
